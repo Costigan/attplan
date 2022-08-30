@@ -1,0 +1,69 @@
+﻿        public void Load()
+        {
+            var vertices = new Vertex[XSize * YSize];
+            if (vertices.Length > 65536)
+                throw new Exception("Mesh too large");
+            float xf = 1f / (XSize - 1);
+            float yf = 1f / (YSize - 1);
+            for (var y = 0; y < YSize; y++)
+            {
+                double ya = (yf * y - 0.5d) * Math.PI;
+                //Console.WriteLine(yf * y - 0.5d);
+                var t = (float)Math.Cos(ya);
+                var pz = (float)Math.Sin(ya);
+                for (var x = 0; x < XSize; x++)
+                {
+                    var idx = x * YSize + y;
+                    vertices[idx].TexCoord.X = x * xf;
+                    vertices[idx].TexCoord.Y = 1f - y * yf;
+
+                    double xa = (x * xf * 2f * Math.PI);
+                    //double xa = (x * xf * 2f * Math.PI);
+                    float px = t * (float)Math.Cos(xa);
+                    float py = t * (float)Math.Sin(xa);
+                    //Console.WriteLine(@"{0}, {1}, {2}", x * xf, px, py);
+
+                    px = -px;  // Helps get the textures aligned to the frame
+                    py = -py;
+
+                    vertices[idx].Normal.X = px;
+                    vertices[idx].Normal.Y = py;
+                    vertices[idx].Normal.Z = pz;
+
+                    vertices[idx].Position.X = px * Radius;
+                    vertices[idx].Position.Y = py * Radius;
+                    vertices[idx].Position.Z = pz * Radius;
+
+                    //Console.WriteLine(@"idx={0}, [x={1}, y={2}] -> [{3}, {4}, {5}]", idx, x, y, px, py, pz);
+                }
+            }
+
+            // Define a mesh
+            var elements = new ushort[(XSize - 1) * (YSize - 1) * 6];
+            var ptr = 0;
+            var xMax = XSize - 1;
+            var yMax = YSize - 1;
+            for (var x = 0; x < xMax; x++)
+                for (var y = 0; y < yMax; y++)
+                {
+                    var v = x * YSize + y;
+
+                    //Console.WriteLine(@"v={0}", v);
+
+                    elements[ptr++] = (ushort)(v + YSize);     // a
+                    elements[ptr++] = (ushort)(v + 1);         // b
+                    elements[ptr++] = (ushort)v;               // c
+
+                    //Console.WriteLine(@"tri [{0}, {1}, {2}]", x + YSize, v + 1, v);
+
+                    elements[ptr++] = (ushort)(v + YSize);     // a
+                    elements[ptr++] = (ushort)(v + YSize + 1); // b
+                    elements[ptr++] = (ushort)(v + 1);         // c
+
+                    //Console.WriteLine(@"tri [{0}, {1}, {2}]", v + YSize, v + YSize + 1, v + 1);
+                }
+            Buffer = LoadVBO(vertices, elements, InterleavedArrayFormat.T2fN3fV3f);
+
+            BoundingSphereRadius = Radius;
+            BoundingSphereDefined = true;
+        }

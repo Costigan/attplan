@@ -1,0 +1,6 @@
+C:\git\github\attplan\obj\Debug\attplan.csprojAssemblyReference.cache
+C:\git\github\attplan\obj\Debug\attplan.OrbitOverviewWindow.resources
+C:\git\github\attplan\obj\Debug\attplan.Properties.Resources.resources
+C:\git\github\attplan\obj\Debug\attplan.csproj.GenerateResource.cache
+C:\git\github\attplan\obj\Debug\attplan.csproj.CoreCompileInputs.cache
+C:\git\github\attplan\obj\Debug\attplan.MainWindow.resources

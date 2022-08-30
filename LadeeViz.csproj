@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EA5A9480-B5F5-4D51-ABD0-EF2C0A21BC48}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LadeeViz</RootNamespace>
+    <AssemblyName>LadeeViz</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK">
+      <HintPath>..\ThirdParty\OpenTK\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl">
+      <HintPath>..\ThirdParty\OpenTK\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComboAction.cs" />
+    <Compile Include="OrbitOverviewWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrbitOverviewWindow.Designer.cs">
+      <DependentUpon>OrbitOverviewWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecondaryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SecondaryView.Designer.cs">
+      <DependentUpon>SecondaryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\VectorEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utilities\VectorEditor.Designer.cs">
+      <DependentUpon>VectorEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UVSPropertyGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UVSPropertyGrid.Designer.cs">
+      <DependentUpon>UVSPropertyGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Viz\Ball.cs" />
+    <Compile Include="Viz\CameraMode.cs" />
+    <Compile Include="Viz\DarkComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Viz\Earth.cs" />
+    <Compile Include="Viz\Extensions.cs" />
+    <Compile Include="Viz\Flat.cs" />
+    <Compile Include="Viz\MoonHeightField.cs" />
+    <Compile Include="Viz\MoonWithMetadata.cs" />
+    <Compile Include="Viz\OpenGLControlWrapper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Viz\Plane.cs" />
+    <Compile Include="Viz\Presentation.cs" />
+    <Compile Include="Viz\RandomHeights.cs" />
+    <Compile Include="Viz\ShaderProgram.cs" />
+    <Compile Include="Viz\Shape.cs" />
+    <Compile Include="Viz\StarBackground.cs" />
+    <Compile Include="Viz\STKModel.cs" />
+    <Compile Include="Viz\TexturedBall.cs" />
+    <Compile Include="Viz\TexturedShape.cs" />
+    <Compile Include="Viz\TrajectoryShape.cs" />
+    <Compile Include="Viz\Utilities.cs" />
+    <Compile Include="Viz\VectorShape.cs" />
+    <Compile Include="Viz\World.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BBBNOVA\BBBNOVA.csproj">
+      <Project>{FCEF651A-5065-4423-B806-52DDEAD0F3C8}</Project>
+      <Name>BBBNOVA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ITOSLIB\ITOSLIB.csproj">
+      <Project>{09C6B41B-1FFD-4324-9141-31C9F1BCD938}</Project>
+      <Name>ITOSLIB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MBViewLib\MBLib.csproj">
+      <Project>{A3049978-8D17-4D62-A68B-BA396054BCCE}</Project>
+      <Name>MBLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="OrbitOverviewWindow.resx">
+      <DependentUpon>OrbitOverviewWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecondaryView.resx">
+      <DependentUpon>SecondaryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\VectorEditor.resx">
+      <DependentUpon>VectorEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UVSPropertyGrid.resx">
+      <DependentUpon>UVSPropertyGrid.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TextFile1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\phong_rejection1_fs_120.glsl" />
+    <None Include="Shaders\moon1_fs_120.glsl" />
+    <None Include="Shaders\moon1_vs_120.glsl" />
+    <None Include="Shaders\earth_fs_120.glsl" />
+    <None Include="Shaders\earth_vs_120.glsl" />
+    <None Include="Shaders\textured_phong_fs_120.glsl" />
+    <None Include="Shaders\textured_phong_vs_120.glsl" />
+    <None Include="Shaders\earth_fs.sav" />
+    <None Include="Shaders\earth_vs.sav" />
+    <None Include="Shaders\phong_fs_120.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Shaders\phong_vs_120.glsl" />
+    <None Include="Shaders\simple_fs.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Shaders\simple_vs.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
